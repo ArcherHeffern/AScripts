@@ -1,4 +1,4 @@
-from io import TextIOWrapper
+from io import TextIOBase, TextIOWrapper
 from os import access, R_OK
 from pathlib import Path
 from sys import argv, stderr, exit
@@ -115,7 +115,7 @@ def EXIT(msg: str):
     exit(__status_code)
 
 class FileWriter:
-    def __init__(self, file: Optional[TextIOWrapper]):
+    def __init__(self, file: Optional[TextIOBase]):
         self.f = file
     
     def write(self, s: str):
@@ -126,7 +126,7 @@ class FileWriter:
         if self.f:
             self.f.close()
 
-def format_file(input_file: TextIOWrapper, output_file: FileWriter, strict: bool) -> bool:
+def format_file(input_file: TextIOBase, output_file: FileWriter, strict: bool) -> bool:
     indentation = 0
     in_word = False
     line = 1
