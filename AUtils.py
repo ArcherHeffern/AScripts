@@ -21,3 +21,19 @@ def prompt_yn(msg: str) -> bool:
         if res in ["n", "no"]:
             return False
 
+class Platform(Enum):
+        MACOS = auto()
+        WINDOWS = auto()
+        LINUX = auto()
+        UNKNOWN = auto()
+
+def get_platform() -> Platform:
+    match system():
+        case 'Windows':
+            return Platform.WINDOWS
+        case 'Linux':
+            return Platform.LINUX
+        case 'Darwin':
+            return Platform.MACOS
+        case _:
+            return Platform.UNKNOWN
