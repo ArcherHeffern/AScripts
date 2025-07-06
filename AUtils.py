@@ -5,6 +5,13 @@ Custom Python Utils
 from sys import exit, stderr
 from typing import NoReturn
 
+
+def eprint(msg: str, red=False):
+    if red:
+        print(f"\033[91m{msg}\033[0m", file=stderr)
+    else:
+        print(msg, file=stderr)
+
 def EXIT(msg: str, status_code) -> NoReturn:
     if status_code == 0:
         print(msg)
