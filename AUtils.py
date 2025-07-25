@@ -4,6 +4,7 @@ Custom Python Utils
 
 from sys import exit, stderr
 from typing import NoReturn
+from enum import Enum
 
 
 def eprint(msg: str, red=False):
