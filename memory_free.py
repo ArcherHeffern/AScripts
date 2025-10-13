@@ -6,6 +6,7 @@ from AUtils import prompt_yn
 HOTSPOTS: list[str] = [
     "/Library/Caches",
     "~/Library/Caches",
+    "~/Library/Containers/com.apple.mediaanalysisd/Data/Library/Caches",
 ]
 
 if __name__ == '__main__':
