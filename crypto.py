@@ -84,7 +84,9 @@ def decrypt(ciphertext: CipherText, private_key: EncryptionPrivateKey) -> Option
     )
     if len(msg) % 2 != 0:
         return None
-    
-    if msg[0:len(msg)/2] != msg[len(msg)/2+1:]:
+
+    first_half = msg[0 : len(msg) // 2]
+    second_half = msg[len(msg) // 2:]
+    if first_half != second_half:
         return None
-    return msg.decode()
+    return first_half.decode()
